@@ -1,29 +1,28 @@
 {
-  "name": "burger",
+  "name": "workout_tracker",
   "version": "1.0.0",
-  "description": "burger logger with MySQL, Node, Express, Handlebars and ORM",
-  "main": "index.js",
+  "description": "workout tracker with Mongo, Node, Express",
+  "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "devStart": "nodemon server.js",
-    "dblocalschema": "mysql -uroot -p < db/schema.sql",
-    "dblocaldata": "mysql -uroot -p < db/seeds.sql"
+    "watch": "nodemon server.js",
+    "seed": "node seeders/seed.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AllAroundD/burger.git"
+    "url": "git+https://github.com/AllAroundD/Workout-Tracker.git"
   },
   "author": "Doug Moore",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AllAroundD/burger/issues"
+    "url": "https://github.com/AllAroundD/Workout-Tracker/issues"
   },
-  "homepage": "https://github.com/AllAroundD/burger#readme",
+  "homepage": "https://github.com/AllAroundD/Workout-Tracker#readme",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^4.0.4",
-    "mysql": "^2.18.1"
+    "express": "^4.16.3",
+    "mongoose": "^5.3.16",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
