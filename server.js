@@ -3,12 +3,12 @@ const express = require("express")
 const mongoose = require("mongoose")
 
 const app = express()
-const routesController = require("./controllers/workout_controller.js");
+const routesController = require("./controllers/workout_controller.js")
 
 mongoose.connect(process.env.MONGODB_URI || process.env.DB_URL,
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }, (err) => {
-        if (err) throw err;
-        console.log("DB Connected Successfully");
+        if (err) throw err
+        console.log("DB Connected Successfully")
     })
 
 // Set the port of our application
