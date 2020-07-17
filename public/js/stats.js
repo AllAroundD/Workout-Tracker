@@ -2,17 +2,16 @@
 
 fetch("/api/workouts/range")
   .then(response => {
-    return response.json();
+    return response.json()
   })
   .then(data => {
-    populateChart(data);
-  });
-
+    populateChart(data)
+  })
 
 API.getWorkoutsInRange()
 
-  function generatePalette() {
-    const arr = [
+function generatePalette() {
+  const arr = [
     "#003f5c",
     "#2f4b7c",
     "#665191",
@@ -31,18 +30,18 @@ API.getWorkoutsInRange()
     "ffa600"
   ]
 
-  return arr;
-  }
+  return arr
+}
 function populateChart(data) {
-  let durations = duration(data);
-  let pounds = calculateTotalWeight(data);
-  let workouts = workoutNames(data);
-  const colors = generatePalette();
+  let durations = duration(data)
+  let pounds = calculateTotalWeight(data)
+  let workouts = workoutNames(data)
+  const colors = generatePalette()
 
-  let line = document.querySelector("#canvas").getContext("2d");
-  let bar = document.querySelector("#canvas2").getContext("2d");
-  let pie = document.querySelector("#canvas3").getContext("2d");
-  let pie2 = document.querySelector("#canvas4").getContext("2d");
+  let line = document.querySelector("#canvas").getContext("2d")
+  let bar = document.querySelector("#canvas2").getContext("2d")
+  let pie = document.querySelector("#canvas3").getContext("2d")
+  let pie2 = document.querySelector("#canvas4").getContext("2d")
 
   let lineChart = new Chart(line, {
     type: "line",
@@ -90,7 +89,7 @@ function populateChart(data) {
         ]
       }
     }
-  });
+  })
 
   let barChart = new Chart(bar, {
     type: "bar",
@@ -143,7 +142,7 @@ function populateChart(data) {
         ]
       }
     }
-  });
+  })
 
   let pieChart = new Chart(pie, {
     type: "pie",
@@ -163,7 +162,7 @@ function populateChart(data) {
         text: "Excercises Performed"
       }
     }
-  });
+  })
 
   let donutChart = new Chart(pie2, {
     type: "doughnut",
@@ -183,41 +182,41 @@ function populateChart(data) {
         text: "Excercises Performed"
       }
     }
-  });
+  })
 }
 
 function duration(data) {
-  let durations = [];
+  let durations = []
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
-      durations.push(exercise.duration);
-    });
-  });
+      durations.push(exercise.duration)
+    })
+  })
 
-  return durations;
+  return durations
 }
 
 function calculateTotalWeight(data) {
-  let total = [];
+  let total = []
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
-      total.push(exercise.weight);
-    });
-  });
+      total.push(exercise.weight)
+    })
+  })
 
-  return total;
+  return total
 }
 
 function workoutNames(data) {
-  let workouts = [];
+  let workouts = []
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
-      workouts.push(exercise.name);
-    });
-  });
-  
-  return workouts;
+      workouts.push(exercise.name)
+    })
+  })
+
+  return workouts
 }

@@ -17,10 +17,8 @@ Workout Tracker is an app that lets users view, create, and track daily workouts
   For the local setup of this application, there are a few npm modules that are required (dotenv, etc.). Once the repository is cloned, typing 'npm install' at the command prompt will install all of the required modules.
   This application requires ... to be installed.
   A '.env' file will need to be created in the main folder of the application after cloning for the local connection info, with the following info:
-    DB_USER=<your user name (usually it is 'root'>)
-    DB_NAME=<your database name> (..._db is set in the db/schema.sql file)
-    DB_PWD=<your password>
-  Then typing 'npm run dblocalschema && run dblocaldata' will initialize the database. Note: this step only needs to be included when the database needs to be initialized or restored.
+    DB_URL=mongodb://localhost/Workout
+  Then typing 'npm run seed' will initialize the database. Note: this step only needs to be included when the database needs to be initialized or restored.
   Once the user runs the program by typing 'npm start', the node server will be listening on port 8080.
   Open browser window and go to http://localhost:8080.
 
