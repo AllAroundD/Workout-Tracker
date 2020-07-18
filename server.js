@@ -1,7 +1,7 @@
 require('dotenv').config()      // loads confirmation information from the .env file
 const express = require("express")
 const mongoose = require("mongoose")
-
+const logger = require("morgan");
 const app = express()
 const routesController = require("./controllers/workout_controller.js")
 
@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGODB_URI || process.env.DB_URL,
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
 const PORT = process.env.PORT || 8080
-
+app.use(logger("dev"));
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
